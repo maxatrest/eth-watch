@@ -9,7 +9,7 @@ var bot = new SlackBot({
 });
 
 bot.on('start', function() {
-    new CronJob('* * * * * *', function() {
+    new CronJob('00 00 09 * * *', function() {
         const getEthData = () => {
             request("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD", (error, response) => {
               if (error) {
