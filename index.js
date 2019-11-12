@@ -1,11 +1,11 @@
-var donenv = require('dotenv').config()
-var CronJob = require('cron').CronJob;
-var SlackBot = require('slackbots');
-var request = require('request');
+const donenv = require('dotenv').config()
+const CronJob = require('cron').CronJob;
+const SlackBot = require('slackbots');
+const request = require('request');
 
-var bot = new SlackBot({
+const bot = new SlackBot({
     token: process.env.TOKEN, 
-    name: 'Max Eth Watch'
+    name: 'Max ETH Watch'
 });
 
 bot.on('start', function() {
