@@ -9,7 +9,7 @@ const bot = new SlackBot({
 });
 
 bot.on('start', function() {
-    new CronJob('00 00 09 * * *', function() {
+    new CronJob('00 00 09 * * 1-5', function() {
         const getEthData = () => {
             request("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD", (error, response) => {
               if (error) {
@@ -50,7 +50,7 @@ bot.on('start', function() {
                 actionMsg = msgGroup[Math.floor(Math.random()*msgGroup.length)]
                 
                 const msg = `Good morning, ${process.env.TEAM}! *ETH is ${verb}* ${pctChange}% ${preposition} *${price}*. ${actionMsg}`
-                
+
                 bot.postMessage(process.env.CHAT, msg, params)
                 }
             })
