@@ -1,7 +1,7 @@
 const donenv = require('dotenv').config()
-const CronJob = require('cron').CronJob;
-const SlackBot = require('slackbots');
-const request = require('request');
+const CronJob = require('cron').CronJob
+const SlackBot = require('slackbots')
+const request = require('request')
 
 const bot = new SlackBot({
     token: process.env.TOKEN, 
@@ -50,7 +50,7 @@ bot.on('start', function() {
                 actionMsg = msgGroup[Math.floor(Math.random()*msgGroup.length)]
                 
                 const msg = `Good morning, ${process.env.TEAM}! *ETH is ${verb}* ${pctChange}% ${preposition} *${price}*. ${actionMsg}`
-                console.log(price, positiveChange, pctChange, params)
+                
                 bot.postMessage(process.env.CHAT, msg, params)
                 }
             })
@@ -59,5 +59,5 @@ bot.on('start', function() {
         getEthData()
 
 
-      }, null, true, process.env.TIMEZONE);
-});
+      }, null, true, process.env.TIMEZONE)
+})
